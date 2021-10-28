@@ -70,7 +70,7 @@ namespace XD.Intl.Common.Editor{
             //拷贝文件夹里的资源
             var tdsResourcePath = XDGFileHelper.FilterFile(parentFolder + "/Library/PackageCache/", $"{npmModuleName}@");
             if (string.IsNullOrEmpty(tdsResourcePath)){ //优先使用npm的，否则用本地的
-                tdsResourcePath = parentFolder + "/Assets/XD-Intl/" + localModuleName;
+                tdsResourcePath = parentFolder + "/Assets/XD/Intl/" + localModuleName;
             }
             tdsResourcePath = tdsResourcePath + "/Plugins/iOS/Resource";
             
