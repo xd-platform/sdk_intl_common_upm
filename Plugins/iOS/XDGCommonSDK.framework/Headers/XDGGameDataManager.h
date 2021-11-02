@@ -1,7 +1,6 @@
 
 #import <Foundation/Foundation.h>
 #import <XDGCommonSDK/XDGRegionInfo.h>
-
 @class TDSGlobalGame;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)getClientConfigFirstRequest:(BOOL)first  com:(void (^)(BOOL success))handler;
 
 + (XDGRegionInfo *)getRegionInfo;
+
++ (void)getRegionInfo:(void (^)(XDGRegionInfo *result))completeHandler;
 
 /// 是否已经初始化
 + (BOOL)isGameInited;

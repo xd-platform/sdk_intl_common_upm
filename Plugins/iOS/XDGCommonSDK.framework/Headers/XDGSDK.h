@@ -32,7 +32,8 @@ typedef void(^XDGInitCallback)(BOOL success);
 + (void)storeReview;
 
 // 获取当前用户位置
-+ (XDGRegionInfo *)getRegionInfo;
+
++ (void)getRegionInfo:(void (^)(XDGRegionInfo *result))completeHandler;
 
 
 #pragma mark -- share
