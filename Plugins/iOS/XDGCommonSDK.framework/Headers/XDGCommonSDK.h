@@ -15,8 +15,9 @@
 #import <XDGCommonSDK/XDGUser.h>
 #import <XDGCommonSDK/XDGUserDataManager.h>
 #import <XDGCommonSDK/XDGAccessToken.h>
+#import <XDGCommonSDK/XDGGlobalGame.h>
 
-#define XDGSDK_VERSION @"1.3.0"
-#define TDSGLOBALSDK_NAME @"TDSGlobalSDK"
+#define XDGSDK_VERSION @"6.0.0"
+#define TDSGLOBALSDK_NAME @"XD-Intl-SDK"
 
 

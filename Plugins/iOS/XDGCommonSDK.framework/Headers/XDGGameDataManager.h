@@ -1,13 +1,13 @@
 
 #import <Foundation/Foundation.h>
 #import <XDGCommonSDK/XDGRegionInfo.h>
-@class TDSGlobalGame;
+@class XDGGlobalGame;
 
 NS_ASSUME_NONNULL_BEGIN
 @interface XDGGameDataManager : NSObject
 + (XDGGameDataManager *)shareInstance;
 
-+ (TDSGlobalGame *)currentGameData;
++ (XDGGlobalGame *)currentGameData;
 + (NSArray *)currentLoginEntries;
 + (NSArray *)currentBindEntries;
 + (NSString *)serviceTermsUrl;
