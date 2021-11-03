@@ -52,6 +52,7 @@ namespace XD.Intl.Common
                 }
 
                 var wrapper = new XDGInitResultWrapper(result.content);
+                XDGTool.Log("===> Init XDG SDK wrapper.localConfigInfo.tapSdkConfig: " + JsonUtility.ToJson(wrapper.localConfigInfo.tapSdkConfig));
                 if (wrapper.localConfigInfo.tapSdkConfig != null)
                 {
                     var info = wrapper.localConfigInfo.tapSdkConfig;
@@ -66,7 +67,7 @@ namespace XD.Intl.Common
                     
                     var config = new TapConfig.Builder()
                         .ClientID(info.clientId) // 必须，开发者中心对应 Client ID
-                        .ClientToken(info.clientSecret) // 必须，开发者中心对应 Client Token
+                        .ClientToken(info.clientToken) // 必须，开发者中心对应 Client Token
                         .ServerURL(info.serverUrl) // 开发者中心 > 你的游戏 > 游戏服务 > 云服务 > 数据存储 > 服务设置 > 自定义域名 绑定域名
                         .RegionType(RegionType.IO) // 非必须，默认 CN 表示国内
                         .TapDBConfig(info.enableTapDB, gameChannel, "")

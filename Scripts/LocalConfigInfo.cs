@@ -21,7 +21,7 @@ namespace XD.Intl.Common
     public class TapSdkConfig
     {
         public string clientId;
-        public string clientSecret;
+        public string clientToken;
         public bool enableTapDB;
         public string tapDBChannel;
         public string serverUrl;
@@ -30,7 +30,7 @@ namespace XD.Intl.Common
         {
             if (dic == null) return;
             clientId = SafeDictionary.GetValue<string>(dic, "clientId");
-            clientSecret = SafeDictionary.GetValue<string>(dic, "clientSecret");
+            clientToken = SafeDictionary.GetValue<string>(dic, "clientToken");
             enableTapDB = SafeDictionary.GetValue<bool>(dic, "enableTapDB");
             tapDBChannel = SafeDictionary.GetValue<string>(dic, "tapDBChannel");
             serverUrl = SafeDictionary.GetValue<string>(dic, "serverUrl");
