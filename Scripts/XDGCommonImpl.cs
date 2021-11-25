@@ -38,7 +38,6 @@ namespace XD.Intl.Common
             var command = new Command.Builder()
                 .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
                 .Method("initSDK")
-                .OnceTime(true)
                 .Callback(true)
                 .CommandBuilder();
             
@@ -84,7 +83,6 @@ namespace XD.Intl.Common
             var command = new Command.Builder()
                 .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
                 .Method("isInitialized")
-                .OnceTime(true)
                 .Callback(true)
                 .CommandBuilder();
             EngineBridge.GetInstance().CallHandler(command, result =>
@@ -119,7 +117,6 @@ namespace XD.Intl.Common
                 .Method("shareWithImage")
                 .Args("shareFlavors", (int)shareFlavors)
                 .Args("imagePath", imagePath)
-                .OnceTime(true)
                 .Callback(true)
                 .CommandBuilder();
             EngineBridge.GetInstance().CallHandler(command, result =>
@@ -159,7 +156,6 @@ namespace XD.Intl.Common
                 .Args("shareFlavors", (int)shareFlavors)
                 .Args("uri", uri)
                 .Args("message", message)
-                .OnceTime(true)
                 .Callback(true)
                 .CommandBuilder();
             EngineBridge.GetInstance().CallHandler(command, result =>
@@ -279,7 +275,6 @@ namespace XD.Intl.Common
             var command = new Command.Builder()
                 .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
                 .Method("getSDKVersionName")
-                .OnceTime(true)
                 .Callback(true)
                 .CommandBuilder();
             EngineBridge.GetInstance().CallHandler(command, result =>
@@ -323,7 +318,6 @@ namespace XD.Intl.Common
             var command = new Command.Builder()
                 .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
                 .Method("isCurrentUserPushServiceEnable")
-                .OnceTime(true)
                 .Callback(true)
                 .CommandBuilder();
             EngineBridge.GetInstance().CallHandler(command, result =>
@@ -355,7 +349,6 @@ namespace XD.Intl.Common
             var command = new Command.Builder()
                 .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
                 .Method("getRegionInfo")
-                .OnceTime(true)
                 .Callback(true)
                 .CommandBuilder();
             EngineBridge.GetInstance().CallHandler(command, result =>
