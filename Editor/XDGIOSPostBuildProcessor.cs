@@ -1,3 +1,4 @@
+#if UNITY_EDITOR && UNITY_IOS
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -256,3 +257,4 @@ namespace XD.Intl.Common.Editor{
         }
     }
 }
+#endif
