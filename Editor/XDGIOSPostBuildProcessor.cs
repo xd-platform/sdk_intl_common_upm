@@ -117,7 +117,19 @@ namespace XD.Intl.Common.Editor{
                 "fbshareextension",
                 "lineauth2"
             };
-            PlistElementArray _list = _rootDic.CreateArray("LSApplicationQueriesSchemes");
+            
+            //添加Scheme，用添加，不要覆盖
+            PlistElementArray _list = null;
+            foreach (var item in _rootDic.values){
+                if (item.Key.Equals("LSApplicationQueriesSchemes")){
+                    _list = (PlistElementArray) item.Value;
+                    break;
+                }
+            }
+            if (_list == null){
+                _list = _rootDic.CreateArray("LSApplicationQueriesSchemes");
+            }
+
             for (int i = 0; i < items.Count; i++){
                 _list.AddString(items[i]);
             }
@@ -163,11 +175,20 @@ namespace XD.Intl.Common.Editor{
                 }
             }
 
-            //添加url
+            //添加url 用添加，不要覆盖
             PlistElementDict dict = _plist.root.AsDict();
-            PlistElementArray array = dict.CreateArray("CFBundleURLTypes");
+            PlistElementArray array = null;
+            foreach (var item in _rootDic.values){
+                if (item.Key.Equals("CFBundleURLTypes")){
+                    array = (PlistElementArray) item.Value;
+                    break;
+                }
+            }
+            if (array == null){
+                array = dict.CreateArray("CFBundleURLTypes");
+            }
+            
             PlistElementDict dict2 = array.AddDict();
-
             if (taptapId != null){
                 dict2.SetString("CFBundleURLName", "TapTap");
                 PlistElementArray array2 = dict2.CreateArray("CFBundleURLSchemes");
