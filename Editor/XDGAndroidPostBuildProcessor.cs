@@ -70,16 +70,16 @@ public class XDGAndroidPostBuildProcessor : IPostGenerateGradleAndroidProject
 
                 writeHelper.WriteBelow(@"implementation fileTree(dir: 'libs', include: ['*.jar'])", @"
 
-                implementation 'com.google.firebase:firebase-core:17.2.2'
+                implementation 'com.google.firebase:firebase-core:18.0.0'
                 implementation 'com.google.firebase:firebase-messaging:21.1.0'
 
                 implementation 'com.google.code.gson:gson:2.8.6'
                 implementation 'com.google.android.gms:play-services-auth:16.0.1'
-                implementation 'com.facebook.android:facebook-login:5.15.3'
-                implementation 'com.facebook.android:facebook-share:5.15.3'
-                implementation 'com.appsflyer:af-android-sdk:4.11.0'
+                implementation 'com.facebook.android:facebook-login:12.0.0'
+                implementation 'com.facebook.android:facebook-share:12.0.0'
+                implementation 'com.appsflyer:af-android-sdk:6.4.3'
                 implementation 'com.adjust.sdk:adjust-android:4.24.1'
-                implementation 'com.android.installreferrer:installreferrer:2.1'
+                implementation 'com.android.installreferrer:installreferrer:2.2'
                 implementation 'com.android.billingclient:billing:3.0.1'
                 implementation 'androidx.recyclerview:recyclerview:1.2.1'
                 implementation 'com.google.android.gms:play-services-ads-identifier:15.0.1'
@@ -146,7 +146,7 @@ public class XDGAndroidPostBuildProcessor : IPostGenerateGradleAndroidProject
                 new XD.Intl.Common.Editor.XDGScriptHandlerProcessor(launcherGradle);
             writerHelper.WriteBelow(@"implementation project(':unityLibrary')", @"
                 
-                implementation 'com.google.firebase:firebase-core:17.2.2'
+                implementation 'com.google.firebase:firebase-core:18.0.0'
                 implementation 'com.google.firebase:firebase-messaging:21.1.0'
 
             ");
@@ -179,17 +179,17 @@ public class XDGAndroidPostBuildProcessor : IPostGenerateGradleAndroidProject
                 new XD.Intl.Common.Editor.XDGScriptHandlerProcessor(unityLibraryGradle);
             writerHelper.WriteBelow(@"implementation fileTree(dir: 'libs', include: ['*.jar'])", @"
 
-                implementation 'com.google.firebase:firebase-core:17.2.2'
+                implementation 'com.google.firebase:firebase-core:18.0.0'
                 implementation 'com.google.firebase:firebase-messaging:21.1.0'
     
                 implementation 'com.google.code.gson:gson:2.8.6'
 
                 implementation 'com.google.android.gms:play-services-auth:16.0.1'
-                implementation 'com.facebook.android:facebook-login:5.15.3'
-                implementation 'com.facebook.android:facebook-share:5.15.3'
-                implementation 'com.appsflyer:af-android-sdk:4.11.0'
+                implementation 'com.facebook.android:facebook-login:12.0.0'
+                implementation 'com.facebook.android:facebook-share:12.0.0'
+                implementation 'com.appsflyer:af-android-sdk:6.4.3'
                 implementation 'com.adjust.sdk:adjust-android:4.24.1'
-                implementation 'com.android.installreferrer:installreferrer:2.1'
+                implementation 'com.android.installreferrer:installreferrer:2.2'
                 implementation 'com.android.billingclient:billing:3.0.0'
                 implementation 'androidx.recyclerview:recyclerview:1.2.1'
                 implementation 'com.google.android.gms:play-services-ads-identifier:15.0.1'
