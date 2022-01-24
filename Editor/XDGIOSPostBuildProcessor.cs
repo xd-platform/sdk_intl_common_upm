@@ -236,7 +236,7 @@ namespace XD.Intl.Common.Editor{
             XDGScriptHandlerProcessor UnityAppController = new XDGScriptHandlerProcessor(unityAppControllerPath);
 
             //在指定代码后面增加一行代码
-            UnityAppController.WriteBelow(@"#import <OpenGLES/ES2/glext.h>", @"#import <XDGCommonSDK/XDGCommonSDK.h>");
+            UnityAppController.WriteBelow(@"#import <AVFoundation/AVFoundation.h>", @"#import <XDGCommonSDK/XDGCommonSDK.h>");
             UnityAppController.WriteBelow(@"[KeyboardDelegate Initialize];",
                 @"[XDGSDK application:application didFinishLaunchingWithOptions:launchOptions];");
             UnityAppController.WriteBelow(@"AppController_SendNotificationWithArg(kUnityOnOpenURL, notifData);",
