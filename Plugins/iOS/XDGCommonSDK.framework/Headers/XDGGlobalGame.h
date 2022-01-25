@@ -20,10 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSMutableArray *bindEntriesConfig;      // 绑定入口配置
 
 // Tap 授权地址
-@property (nonatomic,strong) NSMutableArray * tapLoginPermissions;
+@property (nonatomic,strong) NSMutableArray *tapLoginPermissions;
 
+// FB 授权地址
+@property (nonatomic,strong) NSMutableArray *fbLoginPersmissions;
 
 @property (nonatomic,copy) NSString *reportUrl;                      // 客服地址
+
+@property (nonatomic,copy) NSString *logoutUrl;                      // 账户注销地址
+
 
 @property (nonatomic,assign) NSInteger languageLocale;               // 语言
 

@@ -136,6 +136,7 @@ namespace XD.Intl.Common.Editor{
 
             Dictionary<string, object> dic = (Dictionary<string, object>) Plist.readPlist(infoPlistPath);
             string facebookId = null;
+            string facebookToken = null;
             string taptapId = null;
             string googleId = null;
             string twitterId = null;
@@ -145,7 +146,9 @@ namespace XD.Intl.Common.Editor{
                     Dictionary<string, object> facebookDic = (Dictionary<string, object>) item.Value;
                     foreach (var facebookItem in facebookDic){
                         if (facebookItem.Key.Equals("app_id")){
-                            facebookId = "fb" + (string) facebookItem.Value;
+                            facebookId = (string) facebookItem.Value;
+                        }else  if (facebookItem.Key.Equals("client_token")){
+                            facebookToken = (string) facebookItem.Value;
                         }
                     }
                 }
@@ -188,6 +191,12 @@ namespace XD.Intl.Common.Editor{
                 array = dict.CreateArray("CFBundleURLTypes");
             }
             
+            //添加FacebookAppID 和 FacebookClientToken
+            if (facebookId != null && facebookToken != null){
+                dict.SetString("FacebookAppID", facebookId);
+                dict.SetString("FacebookClientToken", facebookToken);
+            }
+
             PlistElementDict dict2 = array.AddDict();
             if (taptapId != null){
                 dict2.SetString("CFBundleURLName", "TapTap");
@@ -208,7 +217,7 @@ namespace XD.Intl.Common.Editor{
                 dict2.SetString("CFBundleURLName", "Facebook");
                 PlistElementArray array2 = dict2.CreateArray("CFBundleURLSchemes");
                 array2 = dict2.CreateArray("CFBundleURLSchemes");
-                array2.AddString(facebookId);
+                array2.AddString("fb" + facebookId);
             }
 
             if (bundleId != null){

@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSNumber *)isInitialized;
 
++ (void)showLoading;
+
++ (void)hideLoading;
+
 // report
 + (void)serverId:(NSString *)serverId roleId:(NSString *)roleId roleName:(NSString *)roleName;
 
