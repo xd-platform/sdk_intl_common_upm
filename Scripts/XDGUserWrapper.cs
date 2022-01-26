@@ -22,7 +22,11 @@ namespace XD.Intl.Common
         // The user's current loginType.
         public string loginType; //App传来的是字符串，如 TapTap。 通过 GetLoginType() 方法获取枚举
 
-        public List<string> boundAccounts;    
+        public string avatar;
+
+        public string nickName;
+
+        public List<string> boundAccounts;
 
         // The user's token.
         public XDGAccessToken token;
@@ -33,6 +37,8 @@ namespace XD.Intl.Common
                 this.sub = SafeDictionary.GetValue<string>(dic, "sub");
                 this.name = SafeDictionary.GetValue<string>(dic, "name");
                 this.loginType = SafeDictionary.GetValue<string>(dic, "loginType");
+                this.avatar = SafeDictionary.GetValue<string>(dic, "avatar");
+                this.nickName = SafeDictionary.GetValue<string>(dic, "nickName");
                 boundAccounts = SafeDictionary.GetValue<List<object>>(dic, "boundAccounts").Cast<string>().ToList();
                 this.token = new XDGAccessToken(SafeDictionary.GetValue<Dictionary<string, object>>(dic, "token"));
         }
@@ -42,6 +48,8 @@ namespace XD.Intl.Common
             this.sub = SafeDictionary.GetValue<string>(dic,"sub");
             this.name = SafeDictionary.GetValue<string>(dic,"name");
             this.loginType = SafeDictionary.GetValue<string>(dic, "loginType");
+            this.avatar = SafeDictionary.GetValue<string>(dic, "avatar");
+            this.nickName = SafeDictionary.GetValue<string>(dic, "nickName");
             boundAccounts = SafeDictionary.GetValue<List<object>>(dic, "boundAccounts").Cast<string>().ToList();
             this.token  = new XDGAccessToken(SafeDictionary.GetValue<Dictionary<string,object>>(dic,"token"));
         }
