@@ -24,7 +24,7 @@ The user's user name.
 /**
  The user's head portrait.
  */
-@property (nonatomic,copy,readonly) NSString *avatar;
+@property (nonatomic,copy) NSString *avatar;
 
 /**
 The user's current loginType.
