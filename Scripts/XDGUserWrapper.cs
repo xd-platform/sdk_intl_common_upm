@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TapTap.Common;
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 namespace XD.Intl.Common
 {
@@ -32,7 +33,7 @@ namespace XD.Intl.Common
                 this.sub = SafeDictionary.GetValue<string>(dic, "sub");
                 this.name = SafeDictionary.GetValue<string>(dic, "name");
                 this.loginType = SafeDictionary.GetValue<string>(dic, "loginType");
-                this.boundAccounts = SafeDictionary.GetValue<List<string>>(dic, "boundAccounts");
+                boundAccounts = SafeDictionary.GetValue<List<object>>(dic, "boundAccounts").Cast<string>().ToList();
                 this.token = new XDGAccessToken(SafeDictionary.GetValue<Dictionary<string, object>>(dic, "token"));
         }
         
@@ -41,7 +42,7 @@ namespace XD.Intl.Common
             this.sub = SafeDictionary.GetValue<string>(dic,"sub");
             this.name = SafeDictionary.GetValue<string>(dic,"name");
             this.loginType = SafeDictionary.GetValue<string>(dic, "loginType");
-            //参考老项目，这里没有 boundAccounts
+            boundAccounts = SafeDictionary.GetValue<List<object>>(dic, "boundAccounts").Cast<string>().ToList();
             this.token  = new XDGAccessToken(SafeDictionary.GetValue<Dictionary<string,object>>(dic,"token"));
         }
 
