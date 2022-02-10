@@ -21,5 +21,7 @@ namespace XD.Intl.Common
         void IsCurrentUserPushServiceEnable(Action<bool> callback);
         void StoreReview();
         void GetRegionInfo(Action<XDGRegionInfoWrapper> callback);
+        void ShowLoading();
+        void HideLoading();
     }
 }
