@@ -12,6 +12,19 @@ namespace XD.Intl.Common{
             Debug.LogError("\n------------------ XDGSDK报错 ------------------\n"+msg + "\n\n");
         }
         
+        public static bool IsEmpty(string str){
+            if (str == null){
+                return true;
+            }
+            if (String.IsNullOrEmpty(str)){
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(str)){
+                return true;
+            }
+            return false;
+        }
+        
         public  static  bool checkResultSuccess(Result result){
             return result.code == Result.RESULT_SUCCESS && !string.IsNullOrEmpty(result.content);
         }
