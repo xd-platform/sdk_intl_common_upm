@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XDGCoreService : NSObject
 + (NSString *)getSDKVersionName;
++ (NSString *)getDid;
 
 //+ (void)setAdvertiserIDCollectionEnable:(NSNumber *)enable;
 

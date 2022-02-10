@@ -96,5 +96,11 @@ namespace XD.Intl.Common
         {
             XDGCommonImpl.GetInstance().GetRegionInfo(callback);
         }
+        
+        public static void GetDid(Action<string> callback)
+        { 
+            XDGCommonImpl.GetInstance().GetDid(callback);
+        }
+        
     }
 }
