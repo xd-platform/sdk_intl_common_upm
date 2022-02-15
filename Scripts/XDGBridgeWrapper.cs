@@ -10,12 +10,15 @@ namespace XD.Intl.Common
 
         public LocalConfigInfo localConfigInfo;
 
+        public string message;
+
         public XDGInitResultWrapper(string resultJson)
         {
             var dic = Json.Deserialize(resultJson) as Dictionary<string, object>;
             isSuccess = SafeDictionary.GetValue<bool>(dic, "success");
             var configInfoDic = SafeDictionary.GetValue<Dictionary<string, object>>(dic, "configInfo");
             localConfigInfo = new LocalConfigInfo(configInfoDic);
+            message = SafeDictionary.GetValue<string>(dic, "message");
         }
     }
 
@@ -45,6 +48,7 @@ namespace XD.Intl.Common
     public class XDGRegionInfoWrapper
     {
         public XDGRegionInfo info;
+
         public XDGRegionInfoWrapper(string json)
         {
             var dic = Json.Deserialize(json) as Dictionary<string, object>;
