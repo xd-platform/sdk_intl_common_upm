@@ -83,6 +83,14 @@ namespace XD.Intl.Common
         {
             XDGCommonImpl.GetInstance().StoreReview();
         }
+        
+        public static void ShowLoading(){
+            XDGCommonImpl.GetInstance().ShowLoading();
+        }
+        
+        public static void HideLoading(){
+            XDGCommonImpl.GetInstance().HideLoading();
+        }
 
         public static void GetRegionInfo(Action<XDGRegionInfoWrapper> callback)
         {

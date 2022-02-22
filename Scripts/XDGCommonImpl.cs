@@ -357,6 +357,26 @@ namespace XD.Intl.Common
                 callback(new XDGRegionInfoWrapper(result.content));
             });
         }
+        
+        public void ShowLoading()
+        {
+            var command = new Command.Builder()
+                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
+                .Method("showLoading")
+                .Callback(false)
+                .CommandBuilder();
+            EngineBridge.GetInstance().CallHandler(command);
+        }
+        
+        public void HideLoading()
+        {
+            var command = new Command.Builder()
+                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
+                .Method("hideLoading")
+                .Callback(false)
+                .CommandBuilder();
+            EngineBridge.GetInstance().CallHandler(command);
+        }
 
         private bool checkResultSuccess(Result result)
         {
