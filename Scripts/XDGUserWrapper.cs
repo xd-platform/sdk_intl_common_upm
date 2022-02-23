@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TapTap.Common;
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 namespace XD.Intl.Common
 {
@@ -43,6 +44,7 @@ namespace XD.Intl.Common
             this.loginType = SafeDictionary.GetValue<string>(dic, "loginType");
             //参考老项目，这里没有 boundAccounts
             this.token  = new XDGAccessToken(SafeDictionary.GetValue<Dictionary<string,object>>(dic,"token"));
+            this.boundAccounts = SafeDictionary.GetValue<List<object>>(dic, "boundAccounts").Cast<string>().ToList();
         }
 
         public LoginType GetLoginType(){
