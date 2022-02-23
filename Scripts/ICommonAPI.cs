@@ -4,7 +4,7 @@ namespace XD.Intl.Common
 {
     public interface ICommonAPI
     {
-        void InitSDK(Action<bool> callback);
+        void InitSDK(Action<bool, string> callback);
         void IsInitialized(Action<bool> callback);
         void SetLanguage(LangType langType);
         void Share(ShareFlavors shareFlavors, string imagePath, XDGShareCallback callback);

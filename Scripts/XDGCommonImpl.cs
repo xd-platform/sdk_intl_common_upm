@@ -33,7 +33,7 @@ namespace XD.Intl.Common
             return _instance;
         }
 
-        public void InitSDK(Action<bool> callback)
+        public void InitSDK(Action<bool, string> callback)
         {
             var command = new Command.Builder()
                 .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
@@ -46,7 +46,8 @@ namespace XD.Intl.Common
                 XDGTool.Log("===> Init XDG SDK result: " + result.ToJSON());
                 if (!checkResultSuccess(result))
                 {
-                    callback(false);
+                    callback(false, "Init SDK Fail");
+                    XDGTool.LogError("初始化失败 result：" + result.ToJSON());
                     return;
                 }
 
@@ -74,7 +75,7 @@ namespace XD.Intl.Common
                     TapBootstrap.Init(config);
                 }
 
-                callback(wrapper.isSuccess);
+                callback(wrapper.isSuccess, wrapper.message);
             });
         }
 

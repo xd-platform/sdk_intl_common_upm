@@ -4,7 +4,7 @@ namespace XD.Intl.Common
 {
     public class XDGCommon
     {
-        public static void InitSDK(Action<bool> callback)
+        public static void InitSDK(Action<bool, string> callback)
         {
             XDGCommonImpl.GetInstance().InitSDK(callback);
         }

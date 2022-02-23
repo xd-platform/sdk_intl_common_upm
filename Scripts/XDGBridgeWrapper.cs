@@ -20,7 +20,7 @@ namespace XD.Intl.Common
             localConfigInfo = new LocalConfigInfo(configInfoDic);
 
             if (!isSuccess){
-                XDGTool.LogError("初始化失败 msg：" + message);
+                XDGTool.LogError("初始化失败 ：" + resultJson);
             }
         }
     }
