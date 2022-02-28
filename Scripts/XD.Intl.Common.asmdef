@@ -1,6 +1,7 @@
 {
   "name": "XD.Intl.Common",
   "references": [
+    "AppsFlyer"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

@@ -4,6 +4,7 @@ namespace XD.Intl.Common
 {
     public interface ICommonAPI
     {
+        void InitAppsFlyer(string devKey, string appId);
         void InitSDK(Action<bool, string> callback);
         void IsInitialized(Action<bool> callback);
         void SetLanguage(LangType langType);
