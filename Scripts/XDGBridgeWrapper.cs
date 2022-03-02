@@ -8,11 +8,8 @@ namespace XD.Intl.Common
     {
         public bool isSuccess;
         public string message;
-
         public LocalConfigInfo localConfigInfo;
-
-        public string message;
-
+        
         public XDGInitResultWrapper(string resultJson)
         {
             var dic = Json.Deserialize(resultJson) as Dictionary<string, object>;

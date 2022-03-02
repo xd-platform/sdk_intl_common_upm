@@ -21,8 +21,6 @@ namespace XD.Intl.Common
         void SetCurrentUserPushServiceEnable(bool enable);
         void IsCurrentUserPushServiceEnable(Action<bool> callback);
         void StoreReview();
-        void ShowLoading();
-        void HideLoading();
         void GetRegionInfo(Action<XDGRegionInfoWrapper> callback);
         void ShowLoading();
         void HideLoading();

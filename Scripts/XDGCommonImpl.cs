@@ -401,26 +401,6 @@ namespace XD.Intl.Common
                 .CommandBuilder();
             EngineBridge.GetInstance().CallHandler(command);
         }
-
-        public void ShowLoading()
-        {
-            var command = new Command.Builder()
-                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
-                .Method("showLoading")
-                .Callback(false)
-                .CommandBuilder();
-            EngineBridge.GetInstance().CallHandler(command);
-        }
-        
-        public void HideLoading()
-        {
-            var command = new Command.Builder()
-                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
-                .Method("hideLoading")
-                .Callback(false)
-                .CommandBuilder();
-            EngineBridge.GetInstance().CallHandler(command);
-        }
         
         public void GetDid(Action<string> callback){
             var command = new Command.Builder()
