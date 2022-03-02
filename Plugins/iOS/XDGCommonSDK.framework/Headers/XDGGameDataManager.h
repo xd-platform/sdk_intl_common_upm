@@ -22,7 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)setLanguageLocale:(NSInteger)locale;
 
-+ (void)getClientConfigFirstRequest:(BOOL)first  com:(void (^)(BOOL success))handler;
++ (void)getClientConfigFirstRequest:(BOOL)first  com:(void (^)(BOOL success, NSString *msg))handler;
+
 
 + (XDGRegionInfo *)getRegionInfo;
 

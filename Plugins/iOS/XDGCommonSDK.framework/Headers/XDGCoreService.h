@@ -26,6 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)initSDK:(void (^)(NSString *result))callback;
 
++ (void)showLoading;
+
++ (void)hideLoading;
+
++ (NSString *)getDid;
+
 + (NSNumber *)isInitialized;
 
 + (void)showLoading;

@@ -52,6 +52,7 @@ namespace XD.Intl.Common
             this.nickName = SafeDictionary.GetValue<string>(dic, "nickName");
             boundAccounts = SafeDictionary.GetValue<List<object>>(dic, "boundAccounts").Cast<string>().ToList();
             this.token  = new XDGAccessToken(SafeDictionary.GetValue<Dictionary<string,object>>(dic,"token"));
+            this.boundAccounts = SafeDictionary.GetValue<List<object>>(dic, "boundAccounts").Cast<string>().ToList();
         }
 
         public LoginType GetLoginType(){

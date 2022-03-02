@@ -1,9 +1,14 @@
-﻿using System;
+using System;
 
 namespace XD.Intl.Common
 {
     public class XDGCommon
     {
+
+        public static void InitAppsFlyer(string devKey, string appId){
+            XDGCommonImpl.GetInstance().InitAppsFlyer(devKey, appId);
+        }
+
         public static void InitSDK(Action<bool, string> callback)
         {
             XDGCommonImpl.GetInstance().InitSDK(callback);
@@ -82,6 +87,14 @@ namespace XD.Intl.Common
         public static void StoreReview()
         {
             XDGCommonImpl.GetInstance().StoreReview();
+        }
+        
+        public static void ShowLoading(){
+            XDGCommonImpl.GetInstance().ShowLoading();
+        }
+        
+        public static void HideLoading(){
+            XDGCommonImpl.GetInstance().HideLoading();
         }
 
         public static void ShowLoading(){

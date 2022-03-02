@@ -4,6 +4,7 @@ namespace XD.Intl.Common
 {
     public interface ICommonAPI
     {
+        void InitAppsFlyer(string devKey, string appId);
         void InitSDK(Action<bool, string> callback);
         void IsInitialized(Action<bool> callback);
         void SetLanguage(LangType langType);
@@ -20,6 +21,8 @@ namespace XD.Intl.Common
         void SetCurrentUserPushServiceEnable(bool enable);
         void IsCurrentUserPushServiceEnable(Action<bool> callback);
         void StoreReview();
+        void ShowLoading();
+        void HideLoading();
         void GetRegionInfo(Action<XDGRegionInfoWrapper> callback);
         void ShowLoading();
         void HideLoading();

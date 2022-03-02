@@ -7,6 +7,7 @@ namespace XD.Intl.Common
     public class XDGInitResultWrapper
     {
         public bool isSuccess;
+        public string message;
 
         public LocalConfigInfo localConfigInfo;
 
@@ -16,9 +17,16 @@ namespace XD.Intl.Common
         {
             var dic = Json.Deserialize(resultJson) as Dictionary<string, object>;
             isSuccess = SafeDictionary.GetValue<bool>(dic, "success");
+            message = SafeDictionary.GetValue<string>(dic, "message");
             var configInfoDic = SafeDictionary.GetValue<Dictionary<string, object>>(dic, "configInfo");
             localConfigInfo = new LocalConfigInfo(configInfoDic);
+
             message = SafeDictionary.GetValue<string>(dic, "message");
+
+            if (!isSuccess){
+                XDGTool.LogError("初始化失败 ：" + resultJson);
+            }
+
         }
     }
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AppsFlyerSDK;
 using TapTap.Bootstrap;
 using TapTap.Common;
 using UnityEngine;
@@ -33,6 +34,20 @@ namespace XD.Intl.Common
             return _instance;
         }
 
+
+        public void InitAppsFlyer(string devKey, string appId){
+            if (XDGTool.IsEmpty(devKey)){
+                XDGTool.LogError("AppsFlyer的配置devKey是空：" + devKey);
+            } else{
+                XDGTool.Log("初始化AppsFlyer成功 devKey：" + devKey + "  APPID：" + appId);
+            }
+                
+            AppsFlyer.setIsDebug(true);
+            AppsFlyer.initSDK(devKey, appId);
+            AppsFlyer.startSDK();
+        }
+
+
         public void InitSDK(Action<bool, string> callback)
         {
             var command = new Command.Builder()
@@ -46,7 +61,9 @@ namespace XD.Intl.Common
                 XDGTool.Log("===> Init XDG SDK result: " + result.ToJSON());
                 if (!checkResultSuccess(result))
                 {
-                    callback(false, result.message);
+
+                    callback(false, "Init SDK Fail");
+                    XDGTool.LogError("初始化失败 result：" + result.ToJSON());
                     return;
                 }
 
@@ -77,7 +94,7 @@ namespace XD.Intl.Common
                 callback(wrapper.isSuccess, wrapper.message);
             });
         }
-
+        
         public void IsInitialized(Action<bool> callback)
         {
             var command = new Command.Builder()
@@ -238,14 +255,21 @@ namespace XD.Intl.Common
 
         public void TrackEvent(string eventName)
         {
-            var command = new Command.Builder()
-                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
-                .Method("trackEvent")
-                .Args("eventName", eventName)
-                .OnceTime(true)
-                .CommandBuilder();
-            EngineBridge.GetInstance().CallHandler(command);
-            XDGTool.Log($"===> TrackEvent:  {eventName}");
+            // var command = new Command.Builder()
+            //     .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
+            //     .Method("trackEvent")
+            //     .Args("eventName", eventName)
+            //     .OnceTime(true)
+            //     .CommandBuilder();
+            // EngineBridge.GetInstance().CallHandler(command);
+            // XDGTool.Log($"===> TrackEvent:  {eventName}");
+
+            if (XDGTool.IsEmpty(eventName)){
+                XDGTool.LogError("打点名称是空：" + eventName);
+            } else{
+                AppsFlyer.sendEvent(eventName, null);
+                XDGTool.Log($"打点名称TrackEvent:  {eventName}");   
+            }
         }
 
         public void EventCompletedTutorial()
@@ -356,6 +380,26 @@ namespace XD.Intl.Common
                 XDGTool.Log("GetRegionInfo result --> " + JsonUtility.ToJson(result));
                 callback(new XDGRegionInfoWrapper(result.content));
             });
+        }
+        
+        public void ShowLoading()
+        {
+            var command = new Command.Builder()
+                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
+                .Method("showLoading")
+                .Callback(false)
+                .CommandBuilder();
+            EngineBridge.GetInstance().CallHandler(command);
+        }
+        
+        public void HideLoading()
+        {
+            var command = new Command.Builder()
+                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
+                .Method("hideLoading")
+                .Callback(false)
+                .CommandBuilder();
+            EngineBridge.GetInstance().CallHandler(command);
         }
 
         public void ShowLoading()

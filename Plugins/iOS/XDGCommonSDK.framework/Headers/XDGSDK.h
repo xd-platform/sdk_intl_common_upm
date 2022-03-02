@@ -10,7 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Describe the result of init
  */
-typedef void(^XDGInitCallback)(BOOL success);
+typedef void(^XDGInitCallback)(BOOL success, NSString * msg);
 
 @interface XDGSDK : NSObject
 /// 获取当前 SDK 版本
