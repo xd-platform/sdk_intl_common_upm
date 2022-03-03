@@ -4,11 +4,6 @@ namespace XD.Intl.Common
 {
     public class XDGCommon
     {
-
-        public static void InitAppsFlyer(string devKey, string appId){
-            XDGCommonImpl.GetInstance().InitAppsFlyer(devKey, appId);
-        }
-
         public static void InitSDK(Action<bool, string> callback)
         {
             XDGCommonImpl.GetInstance().InitSDK(callback);

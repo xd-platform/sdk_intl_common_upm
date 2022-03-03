@@ -44,8 +44,15 @@ NS_ASSUME_NONNULL_BEGIN
 //shareWithUriMessage
 + (void)shareFlavors:(NSNumber *)type uri:(NSString *)uri message:(NSString *)message bridgeCallback:(void (^)(NSString *result))callback;
 
-#pragma mark - 数据追踪
-+ (void)trackUser:(NSString *)userId;
+
+//trackUser
++ (void)userId:(NSString *)userId;
+
+//trackEvent
++ (void)eventName:(NSString *)eventName;
+
+//setCurrentUserPushServiceEnable
++ (void)enable:(NSNumber *)enable;
 
 
 // trackRole
@@ -53,8 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
           roleId:(NSString *)roleId
         roleName:(NSString *)roleName
            level:(NSNumber *)level;
-
-+ (void)trackEvent:(NSString *)eventName;
 
 + (void)trackAchievement;
 
@@ -65,7 +70,6 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 推送
 /// Open or close firebase push service for current user. Call after user logged in.
 /// @param enable enable
-+ (void)setCurrentUserPushServiceEnable:(NSNumber *)enable;
 
 /// The user need push service or not. Call after user logged in.
 + (NSNumber *)isCurrentUserPushServiceEnable;
