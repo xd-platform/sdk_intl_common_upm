@@ -1,9 +1,14 @@
 using System;
+using System.Collections.Generic;
 
 namespace XD.Intl.Common
 {
     public class XDGCommon
     {
+        public static void InitAppsFlyer(string devKey, string appId){
+            XDGCommonImpl.GetInstance().InitAppsFlyer(devKey, appId);
+        }
+
         public static void InitSDK(Action<bool, string> callback)
         {
             XDGCommonImpl.GetInstance().InitSDK(callback);
@@ -47,6 +52,10 @@ namespace XD.Intl.Common
         public static void TrackEvent(string eventName)
         {
             XDGCommonImpl.GetInstance().TrackEvent(eventName);
+        }
+
+        public static void TrackEvent(string eventName, Dictionary<string, string> eventValues){
+            XDGCommonImpl.GetInstance().TrackEvent(eventName, eventValues);
         }
 
         public static void EventCompletedTutorial()

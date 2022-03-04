@@ -73,6 +73,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// The user need push service or not. Call after user logged in.
 + (NSNumber *)isCurrentUserPushServiceEnable;
+
++ (NSString *)getImagePath;
+
 @end
 
 NS_ASSUME_NONNULL_END

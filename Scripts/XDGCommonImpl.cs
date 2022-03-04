@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AppsFlyerSDK;
 using TapTap.Bootstrap;
 using TapTap.Common;
 using UnityEngine;
@@ -32,6 +33,19 @@ namespace XD.Intl.Common
 
             return _instance;
         }
+
+        public void InitAppsFlyer(string devKey, string appId){
+            if (XDGTool.IsEmpty(devKey)){
+                XDGTool.LogError("AppsFlyer的配置devKey是空：" + devKey);
+            } else{
+                XDGTool.Log("初始化AppsFlyer成功 devKey：" + devKey + "  APPID：" + appId);
+            }
+                
+            AppsFlyer.setIsDebug(true);
+            AppsFlyer.initSDK(devKey, appId);
+            AppsFlyer.startSDK();
+        }
+
         
         public void InitSDK(Action<bool, string> callback)
         {
@@ -240,14 +254,30 @@ namespace XD.Intl.Common
 
         public void TrackEvent(string eventName)
         {
-            var command = new Command.Builder()
-                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
-                .Method("trackEvent")
-                .Args("eventName", eventName)
-                .OnceTime(true)
-                .CommandBuilder();
-            EngineBridge.GetInstance().CallHandler(command);
-            XDGTool.Log($"===> TrackEvent:  {eventName}");
+            // var command = new Command.Builder()
+            //     .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
+            //     .Method("trackEvent")
+            //     .Args("eventName", eventName)
+            //     .OnceTime(true)
+            //     .CommandBuilder();
+            // EngineBridge.GetInstance().CallHandler(command);
+            // XDGTool.Log($"===> TrackEvent:  {eventName}");
+            
+            if (XDGTool.IsEmpty(eventName)){
+                XDGTool.LogError("打点名称是空：" + eventName);
+            } else{
+                AppsFlyer.sendEvent(eventName, null);
+                XDGTool.Log($"打点名称TrackEvent:  {eventName}");   
+            }
+        }
+        
+        public  void TrackEvent(string eventName, Dictionary<string, string> eventValues){
+            if (XDGTool.IsEmpty(eventName)){
+                XDGTool.LogError("打点名称是空：" + eventName);
+            } else{
+                AppsFlyer.sendEvent(eventName, eventValues);
+                XDGTool.Log($"打点名称TrackEvent:  {eventName}  eventValues: {eventValues}");   
+            }
         }
 
         public void EventCompletedTutorial()

@@ -1,9 +1,10 @@
 using System;
+using System.Collections.Generic;
 
 namespace XD.Intl.Common
 {
-    public interface ICommonAPI
-    {
+    public interface ICommonAPI{
+        void InitAppsFlyer(string devKey, string appId);
         void InitSDK(Action<bool, string> callback);
         void IsInitialized(Action<bool> callback);
         void SetLanguage(LangType langType);
@@ -13,6 +14,7 @@ namespace XD.Intl.Common
         void TrackRole(string serverId, string roleId, string roleName, int level);
         void TrackUser(string userId);
         void TrackEvent(string eventName);
+        void TrackEvent(string eventName, Dictionary<string, string> eventValues);
         void EventCompletedTutorial();
         void EventCreateRole();
         void GetVersionName(Action<string> callback);
