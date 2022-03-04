@@ -265,6 +265,10 @@ namespace XD.Intl.Common.Editor{
 
             UnityAppController.WriteBelow(@"handler(UIBackgroundFetchResultNoData);",
                 @"[XDGSDK application:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];");
+            
+            UnityAppController.WriteBelow(@"- (NSUInteger)application:(UIApplication*)application supportedInterfaceOrientationsForWindow:(UIWindow*)window
+{",
+                @"return UIInterfaceOrientationMaskLandscape;");
         }
 
         private static bool CheckoutUniversalLinkHolder(string filePath, string below){
