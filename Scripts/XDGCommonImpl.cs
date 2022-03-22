@@ -44,6 +44,7 @@ namespace XD.Intl.Common
             AppsFlyer.setIsDebug(true);
             AppsFlyer.initSDK(devKey, appId);
             AppsFlyer.startSDK();
+            AppsFlyer.setCustomerUserId("id");
         }
 
         

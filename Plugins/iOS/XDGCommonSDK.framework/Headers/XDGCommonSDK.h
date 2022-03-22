@@ -17,7 +17,7 @@
 #import <XDGCommonSDK/XDGAccessToken.h>
 #import <XDGCommonSDK/XDGGlobalGame.h>
 
-#define XDGSDK_VERSION @"6.1.1"
+#define XDGSDK_VERSION @"6.1.2"
 #define TDSGLOBALSDK_NAME @"XD-Intl-SDK"
 
 
