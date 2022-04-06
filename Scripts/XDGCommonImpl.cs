@@ -89,6 +89,7 @@ namespace XD.Intl.Common
                         .TapDBConfig(info.enableTapDB, gameChannel, "")
                         .ConfigBuilder();
                     TapBootstrap.Init(config);
+                    XDGTool.Log($"初始化 TapBootstrap 成功：clientId:{info.clientId} clientToken:{info.clientToken} channel:{gameChannel} ");
                 }
 
                 callback(wrapper.isSuccess, wrapper.message);
@@ -255,21 +256,21 @@ namespace XD.Intl.Common
 
         public void TrackEvent(string eventName)
         {
-            // var command = new Command.Builder()
-            //     .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
-            //     .Method("trackEvent")
-            //     .Args("eventName", eventName)
-            //     .OnceTime(true)
-            //     .CommandBuilder();
-            // EngineBridge.GetInstance().CallHandler(command);
-            // XDGTool.Log($"===> TrackEvent:  {eventName}");
+            var command = new Command.Builder()
+                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
+                .Method("trackEvent")
+                .Args("eventName", eventName)
+                .OnceTime(true)
+                .CommandBuilder();
+            EngineBridge.GetInstance().CallHandler(command);
+            XDGTool.Log($"===> TrackEvent:  {eventName}");
             
-            if (XDGTool.IsEmpty(eventName)){
-                XDGTool.LogError("打点名称是空：" + eventName);
-            } else{
-                AppsFlyer.sendEvent(eventName, null);
-                XDGTool.Log($"打点名称TrackEvent:  {eventName}");   
-            }
+            // if (XDGTool.IsEmpty(eventName)){
+            //     XDGTool.LogError("打点名称是空：" + eventName);
+            // } else{
+            //     AppsFlyer.sendEvent(eventName, null);
+            //     XDGTool.Log($"打点名称TrackEvent:  {eventName}");   
+            // }
         }
         
         public  void TrackEvent(string eventName, Dictionary<string, string> eventValues){
@@ -425,6 +426,16 @@ namespace XD.Intl.Common
                 }
                 callback(result.content);
             });
+        }
+        
+        public void SetDebugMode(){
+            var command = new Command.Builder()
+                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
+                .Method("setDebugMode")
+                .Args("setDebugMode", 1)
+                .OnceTime(true)
+                .CommandBuilder();
+            EngineBridge.GetInstance().CallHandler(command);
         }
 
         private bool checkResultSuccess(Result result)

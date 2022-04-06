@@ -111,5 +111,9 @@ namespace XD.Intl.Common
             XDGCommonImpl.GetInstance().GetDid(callback);
         }
         
+        public static void SetDebugMode(){
+            XDGCommonImpl.GetInstance().SetDebugMode();
+        }
+        
     }
 }
