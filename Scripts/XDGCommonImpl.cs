@@ -412,20 +412,23 @@ namespace XD.Intl.Common
             EngineBridge.GetInstance().CallHandler(command);
         }
         
-        public void GetDid(Action<string> callback){
+        public void LoginSuccessEvent(){
             var command = new Command.Builder()
                 .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
-                .Method("getDid")
-                .Callback(true)
+                .Method("loginSuccessEvent")
+                .Callback(false)
                 .CommandBuilder();
-            EngineBridge.GetInstance().CallHandler(command, result => {
-                XDGTool.Log("===> getDid: " + result.ToJSON());
-                if (!checkResultSuccess(result)){
-                    callback($"getDid Failed:{result.message}");
-                    return;
-                }
-                callback(result.content);
-            });
+            EngineBridge.GetInstance().CallHandler(command);
+        }
+        
+        public void LoginFailEvent(string loginFailMsg){
+            var command = new Command.Builder()
+                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
+                .Method("loginFailEvent")
+                .Args("loginFailMsg", loginFailMsg)
+                .OnceTime(true)
+                .CommandBuilder();
+            EngineBridge.GetInstance().CallHandler(command);
         }
         
         public void SetDebugMode(){

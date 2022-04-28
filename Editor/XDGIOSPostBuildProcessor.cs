@@ -245,8 +245,8 @@ namespace XD.Intl.Common.Editor{
             XDGScriptHandlerProcessor UnityAppController = new XDGScriptHandlerProcessor(unityAppControllerPath);
 
             //在指定代码后面增加一行代码
-            UnityAppController.WriteBelow(@"#import <AVFoundation/AVFoundation.h>", @"#import <XDGCommonSDK/XDGCommonSDK.h>");
-            UnityAppController.WriteBelow(@"#import <AVFoundation/AVFoundation.h>", @"#import <XDGCommonSDK/XDGSDKSettings.h>");
+            UnityAppController.WriteBelow(@"#include <assert.h>", @"#import <XDGCommonSDK/XDGCommonSDK.h>");
+            UnityAppController.WriteBelow(@"#include <assert.h>", @"#import <XDGCommonSDK/XDGSDKSettings.h>");
 
             UnityAppController.WriteBelow(@"[KeyboardDelegate Initialize];",
                 @"[XDGSDK application:application didFinishLaunchingWithOptions:launchOptions];");
