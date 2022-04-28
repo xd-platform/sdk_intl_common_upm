@@ -22,6 +22,10 @@ typedef NS_ENUM(NSInteger,XDGLanguageLocale) {
 /// SDK Settings
 @interface XDGSDKSettings : NSObject
 
+/// 是否开启收集广告标识符 IDFA,将会开启和关闭所有第三方 SDK 收集。 请在最早调用（任何 SDK 调用之前）
+/// @param enable YES: 开启 NO: 关闭。 默认 NO
++ (void)setAdvertiserIDCollectionEnable:(BOOL)enable;
+
 /// 设置调试模式，debug 会输出SDK日志
 /// @param debug 是否 debug 模式。默认 NO
 + (void)setDebugMode:(BOOL)debug;

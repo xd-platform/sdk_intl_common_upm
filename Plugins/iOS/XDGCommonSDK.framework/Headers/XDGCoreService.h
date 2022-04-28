@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getSDKVersionName;
 + (NSString *)getDid;
 
-//+ (void)setAdvertiserIDCollectionEnable:(NSNumber *)enable;
++ (void)setAdvertiserIDCollectionEnable:(NSNumber *)enable;
 
 // 获取当前用户位置
 + (void)getRegionInfo:(void (^)(NSString *result))callback;
@@ -66,6 +66,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)eventCompletedTutorial;
 
 + (void)eventCreateRole;
+
++ (void)loginSuccessEvent;
+
++ (void)loginFailMsg:(NSString *)loginFailMsg;
 
 #pragma mark - 推送
 /// Open or close firebase push service for current user. Call after user logged in.

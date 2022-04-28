@@ -25,6 +25,5 @@ namespace XD.Intl.Common
         void GetRegionInfo(Action<XDGRegionInfoWrapper> callback);
         void ShowLoading();
         void HideLoading();
-        void GetDid(Action<string> callback);
     }
 }

@@ -13,13 +13,7 @@ namespace XD.Intl.Common{
         }
         
         public static void LogError(string msg){
-            try{
-                XDGCommon.GetDid(did => {
-                    Print("userId:【" + userId + "】," + "device did:【" + did + "】。" + msg);
-                });
-            } catch (Exception e){
-                Print("userId:【" + userId + "】"  + msg + e.Message);
-            }
+            Print("userId:【" + userId + "】"  + msg);
         }
         
         private static void Print(string msg){
