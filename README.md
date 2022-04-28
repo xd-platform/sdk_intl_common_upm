@@ -1,15 +1,15 @@
-# XD-Intl 
+# XD-Intl
 ## 1.在Packages/manifest.json中加入如下引用
 ```
-   "com.leancloud.realtime": "https://github.com/leancloud/csharp-sdk-upm.git#realtime-0.10.2",
-    "com.leancloud.storage": "https://github.com/leancloud/csharp-sdk-upm.git#storage-0.10.2",
-    "com.taptap.tds.bootstrap": "https://github.com/TapTap/TapBootstrap-Unity.git#3.6.1",
-    "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.6.1",
-    "com.taptap.tds.login": "https://github.com/TapTap/TapLogin-Unity.git#3.6.1",
-    "com.taptap.tds.tapdb": "https://github.com/TapTap/TapDB-Unity.git#3.6.1",
-    "com.xd.intl.common": "https://github.com/xd-platform/sdk_intl_common_upm.git#6.1.1",
-    "com.xd.intl.account": "https://github.com/xd-platform/sdk_intl_account_upm.git#6.1.1",
-    "com.xd.intl.payment": "https://github.com/xd-platform/sdk_intl_payment_upm.git#6.1.1",
+    "com.leancloud.realtime": "https://github.com/leancloud/csharp-sdk-upm.git#realtime-0.10.5",
+    "com.leancloud.storage": "https://github.com/leancloud/csharp-sdk-upm.git#storage-0.10.5",
+    "com.taptap.tds.bootstrap": "https://github.com/TapTap/TapBootstrap-Unity.git#3.6.3",
+    "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.6.3",
+    "com.taptap.tds.login": "https://github.com/TapTap/TapLogin-Unity.git#3.6.3",
+    "com.taptap.tds.tapdb": "https://github.com/TapTap/TapDB-Unity.git#3.6.3",
+    "com.xd.intl.common": "https://github.com/xd-platform/sdk_intl_common_upm.git#6.3.0",
+    "com.xd.intl.account": "https://github.com/xd-platform/sdk_intl_account_upm.git#6.3.0",
+    "com.xd.intl.payment": "https://github.com/xd-platform/sdk_intl_payment_upm.git#6.3.0",
     
     "scopedRegistries": [
     {
@@ -28,13 +28,6 @@
     }
   ]
 ```
-(依赖的仓库地址)
-* [TapTap.Common](https://github.com/TapTap/TapCommon-Unity.git)
-* [TapTap.Bootstrap](https://github.com/TapTap/TapBootstrap-Unity.git)
-* [TapTap.Login](https://github.com/TapTap/TapLogin-Unity.git)
-* [TapTap.TapDB](https://github.com/TapTap/TapDB-Unity.git)
-* [LeanCloud](https://github.com/leancloud/csharp-sdk-upm)
-
 
 ## 2.配置SDK
 #### iOS配置
@@ -44,6 +37,10 @@
 
 #### Android配置
 * 将XDG_info.json、google-Service.json 文件放在 /Assets/Plugins/Android/assets中
+
+[文件下载](https://github.com/xd-platform/xd_sdk_resource/tree/master/Unity_Intl/ConfigFile)
+
+google-Service.json 文件是从[Firebase控制台下载的](https://console.firebase.google.com/)
 
 ## 3.命名空间
 
@@ -123,3 +120,5 @@ XDGCommon.Share(ShareFlavors shareFlavors, string uri, string message, XDGShareC
                }
             });
 ```
+
+[CHANGE LOG](https://github.com/xd-platform/sdk_intl_common_upm/blob/github_upm/ChangeLog.md)
