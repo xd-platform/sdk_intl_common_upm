@@ -1,7 +1,6 @@
 namespace XD.Intl.Common
 {
-    public enum LangType
-    {
+    public enum LangType : int{
         ZH_CN = 0,
         ZH_TW = 1,
         EN = 2,

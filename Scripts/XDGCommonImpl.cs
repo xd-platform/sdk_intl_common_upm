@@ -12,6 +12,7 @@ namespace XD.Intl.Common
         private static readonly string COMMON_MODULE_UNITY_BRIDGE_NAME = "XDGCoreService";
         private static volatile XDGCommonImpl _instance;
         private static readonly object locker = new object();
+        private static bool UseIDFA = false;
 
         private XDGCommonImpl()
         {
@@ -86,10 +87,10 @@ namespace XD.Intl.Common
                         .ClientToken(info.clientToken) // 必须，开发者中心对应 Client Token
                         .ServerURL(info.serverUrl) // 开发者中心 > 你的游戏 > 游戏服务 > 云服务 > 数据存储 > 服务设置 > 自定义域名 绑定域名
                         .RegionType(RegionType.IO) // 非必须，默认 CN 表示国内
-                        .TapDBConfig(info.enableTapDB, gameChannel, "")
+                        .TapDBConfig(info.enableTapDB, gameChannel, "",UseIDFA)
                         .ConfigBuilder();
                     TapBootstrap.Init(config);
-                    XDGTool.Log($"初始化 TapBootstrap 成功：clientId:{info.clientId} clientToken:{info.clientToken} channel:{gameChannel} ");
+                    XDGTool.Log($"初始化 TapBootstrap 成功：clientId:{info.clientId} clientToken:{info.clientToken} channel:{gameChannel} gameVersion:{Application.version} userIDFA:{UseIDFA}");
                 }
 
                 callback(wrapper.isSuccess, wrapper.message);
@@ -126,6 +127,25 @@ namespace XD.Intl.Common
                 .OnceTime(true)
                 .CommandBuilder();
             EngineBridge.GetInstance().CallHandler(command);
+            
+            //设置 TapCommon
+            TapLanguage tType = TapLanguage.AUTO;
+            if (langType == LangType.ZH_CN){
+                tType = TapLanguage.ZH_HANS;
+            }else if (langType == LangType.ZH_TW){
+                tType = TapLanguage.ZH_HANT;
+            }else if (langType == LangType.JP){
+                tType = TapLanguage.JA;
+            }else if (langType == LangType.KR){
+                tType = TapLanguage.KO;
+            }else if (langType == LangType.EN){
+                tType = TapLanguage.EN;
+            }else if (langType == LangType.TH){
+                tType = TapLanguage.TH;
+            }else if (langType == LangType.ID){
+                tType = TapLanguage.ID;
+            }
+            TapCommon.SetLanguage(tType);
         }
 
         public void Share(ShareFlavors shareFlavors, string imagePath, XDGShareCallback callback)
@@ -439,6 +459,19 @@ namespace XD.Intl.Common
                 .OnceTime(true)
                 .CommandBuilder();
             EngineBridge.GetInstance().CallHandler(command);
+        }
+
+        public void EnableIDFA(bool enable){
+#if UNITY_IOS
+            UseIDFA = enable;
+            var command = new Command.Builder()
+                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
+                .Method("enableIDFA")
+                .Args("enableIDFA", enable ? 1 : 0)
+                .Callback(false)
+                .CommandBuilder();
+            EngineBridge.GetInstance().CallHandler(command); 
+#endif
         }
 
         private bool checkResultSuccess(Result result)

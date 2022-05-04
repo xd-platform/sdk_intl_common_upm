@@ -109,6 +109,9 @@ namespace XD.Intl.Common
         public static void SetDebugMode(){
             XDGCommonImpl.GetInstance().SetDebugMode();
         }
-        
+
+        public static void EnableIDFA(bool enable){ //在初始化之前调用
+            XDGCommonImpl.GetInstance().EnableIDFA(enable);
+        }
     }
 }

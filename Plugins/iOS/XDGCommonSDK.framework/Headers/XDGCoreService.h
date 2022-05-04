@@ -15,12 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getSDKVersionName;
 + (NSString *)getDid;
 
-+ (void)setAdvertiserIDCollectionEnable:(NSNumber *)enable;
++ (void)enableIDFA:(NSNumber *)enableIDFA;
 
 // 获取当前用户位置
 + (void)getRegionInfo:(void (^)(NSString *result))callback;
 
-+ (void)setDebugMode:(NSNumber *)debug;
++ (void)setDebugMode:(NSNumber *)setDebugMode;
 
 + (void)langType:(NSNumber *)langType;
 
@@ -67,19 +67,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)eventCreateRole;
 
-+ (void)loginSuccessEvent;
-
-+ (void)loginFailMsg:(NSString *)loginFailMsg;
-
 #pragma mark - 推送
 /// Open or close firebase push service for current user. Call after user logged in.
 /// @param enable enable
 
 /// The user need push service or not. Call after user logged in.
 + (NSNumber *)isCurrentUserPushServiceEnable;
-
-+ (NSString *)getImagePath;
-
 @end
 
 NS_ASSUME_NONNULL_END
