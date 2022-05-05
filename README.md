@@ -7,9 +7,9 @@
     "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.6.3",
     "com.taptap.tds.login": "https://github.com/TapTap/TapLogin-Unity.git#3.6.3",
     "com.taptap.tds.tapdb": "https://github.com/TapTap/TapDB-Unity.git#3.6.3",
-    "com.xd.intl.common": "https://github.com/xd-platform/sdk_intl_common_upm.git#6.3.0",
-    "com.xd.intl.account": "https://github.com/xd-platform/sdk_intl_account_upm.git#6.3.0",
-    "com.xd.intl.payment": "https://github.com/xd-platform/sdk_intl_payment_upm.git#6.3.0",
+    "com.xd.intl.common": "https://github.com/xd-platform/sdk_intl_common_upm.git#6.2.1",
+    "com.xd.intl.account": "https://github.com/xd-platform/sdk_intl_account_upm.git#6.2.1",
+    "com.xd.intl.payment": "https://github.com/xd-platform/sdk_intl_payment_upm.git#6.2.1",
     
     "scopedRegistries": [
     {
@@ -55,7 +55,13 @@ XDGCommon.SetLanguage(LangType.ZH_CN);
 ```
 
 #### 初始化SDK
-使用sdk前需先初始化
+1. 使用sdk前需先初始化。
+
+2. v6.2.1 版本中增加IDFA开启选项，如果游戏需要开启idfa，`需要在初始化前调用 XDGCommon.EnableIDFA(true)`，然后在 `TDS-Info.plist` 中添加如下信息
+```
+   <key>NSUserTrackingUsageDescription</key>
+   <string>想要获取IDFA</string>
+```
 ```
  XDGCommon.InitSDK((success => {
                 if (success){
@@ -72,11 +78,31 @@ XDGCommon.SetLanguage(LangType.ZH_CN);
   });
 ```
 
+#### SDK自带弹框的登录
+```
+ XDGAccount.Login(user={
+    
+},(error)=>{
+    
+});
+```
+
+#### 根据登录类型登录
+```
+1. Default 是自动登录 (以上次登录成功的信息登录，如果之前没登录过就会进失败回调)
+2. 登录成功后调用 XDGCommon.TrackUser(string userId);  //tap db用户统计
+ XDGAccount.LoginByType(LoginType, user => {
+              
+              },error => {
+                
+             });
+```
+
 #### 埋点
 ```
   XDGCommon.Report(serverId, roleId, roleName);
   XDGCommon.TrackRole(string serverId, string roleId, string roleName, int level);
-  XDGCommon.TrackUser(string userId);
+  XDGCommon.TrackUser(string userId);  //tap db用户统计
   XDGCommon.TrackEvent(string eventName);
   XDGCommon.TrackAchievement();
 ```
@@ -120,5 +146,35 @@ XDGCommon.Share(ShareFlavors shareFlavors, string uri, string message, XDGShareC
                }
             });
 ```
+
+#### 绑定用户状态回调(绑定，解绑，退出)
+```
+ XDGAccount.AddUserStatusChangeCallback((code)={
+
+});
+0x9001 退出登录
+0x1001 绑定
+0x1002 解绑
+```
+
+#### 获取用户信息
+```
+ XDGAccount.GetUser((user)={
+   
+},(error)=>{
+    
+});
+```
+
+#### 打开用户中心
+```
+  XDGAccount.OpenUserCenter();
+```
+
+#### 退出登录
+```
+  XDGAccount.Logout();
+```
+
 
 [CHANGE LOG](https://github.com/xd-platform/sdk_intl_common_upm/blob/github_upm/ChangeLog.md)

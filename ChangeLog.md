@@ -1,6 +1,16 @@
-## Unity v6.3.0
+## Unity v6.2.1
 ```
-iOS和安卓SDK添加埋点
+[iOS]
+1. 增加IDFA开启选项： 
+   1.1 需要在初始化前调用 XDGCommon.EnableIDFA(true); 
+   1.2 TDS-Info.plist 中添加如下信息
+       <key>NSUserTrackingUsageDescription</key>
+       <string>想要获取IDFA</string>
+2. 设置 XDGSDK 语言时会同步到 TapSDK
+
+[Android]
+1. 修复Android zendesk 客服系统打开的语言问题
+2. 设置 XDGSDK 语言时会同步到 TapSDK
 ```
 ## Unity v6.2.0
 ```
