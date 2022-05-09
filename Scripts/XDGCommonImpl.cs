@@ -42,10 +42,9 @@ namespace XD.Intl.Common
                 XDGTool.Log("初始化AppsFlyer成功 devKey：" + devKey + "  APPID：" + appId);
             }
                 
-            AppsFlyer.setIsDebug(true);
+            //AppsFlyer.setIsDebug(true);
             AppsFlyer.initSDK(devKey, appId);
             AppsFlyer.startSDK();
-            AppsFlyer.setCustomerUserId("id");
         }
 
         
