@@ -262,9 +262,6 @@ namespace XD.Intl.Common.Editor{
                 UnityAppController.WriteBelow(@"- (void)preStartUnity               {}",
                     @"-(BOOL) application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler{[XDGSDK application:application continueUserActivity:userActivity restorationHandler:restorationHandler];return YES;}");
             }
-
-            UnityAppController.WriteBelow(@"handler(UIBackgroundFetchResultNoData);",
-                @"[XDGSDK application:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];");
         }
 
         private static bool CheckoutUniversalLinkHolder(string filePath, string below){
