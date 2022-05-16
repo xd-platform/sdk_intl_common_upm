@@ -459,6 +459,15 @@ namespace XD.Intl.Common
                 .CommandBuilder();
             EngineBridge.GetInstance().CallHandler(command);
         }
+        
+        public void SetDevelopUrl(){
+            var command = new Command.Builder()
+                .Service(COMMON_MODULE_UNITY_BRIDGE_NAME)
+                .Method("setDevelopUrl")
+                .OnceTime(true)
+                .CommandBuilder();
+            EngineBridge.GetInstance().CallHandler(command);
+        }
 
         public void EnableIDFA(bool enable){
 #if UNITY_IOS
