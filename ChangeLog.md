@@ -1,3 +1,9 @@
+## Unity v6.3.1
+```
+[Android]
+优化 Google 支付
+```
+
 ## Unity v6.3.0
 ```
 [iOS]

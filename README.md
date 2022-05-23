@@ -7,9 +7,9 @@
     "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.6.3",
     "com.taptap.tds.login": "https://github.com/TapTap/TapLogin-Unity.git#3.6.3",
     "com.taptap.tds.tapdb": "https://github.com/TapTap/TapDB-Unity.git#3.6.3",
-    "com.xd.intl.common": "https://github.com/xd-platform/sdk_intl_common_upm.git#6.3.0",
-    "com.xd.intl.account": "https://github.com/xd-platform/sdk_intl_account_upm.git#6.3.0",
-    "com.xd.intl.payment": "https://github.com/xd-platform/sdk_intl_payment_upm.git#6.3.0",
+    "com.xd.intl.common": "https://github.com/xd-platform/sdk_intl_common_upm.git#6.3.1",
+    "com.xd.intl.account": "https://github.com/xd-platform/sdk_intl_account_upm.git#6.3.1",
+    "com.xd.intl.payment": "https://github.com/xd-platform/sdk_intl_payment_upm.git#6.3.1",
     
     "scopedRegistries": [
     {
@@ -80,6 +80,7 @@ XDGCommon.SetLanguage(LangType.ZH_CN);
 
 #### SDK自带弹框的登录
 ```
+ 登录成功后调用 XDGCommon.TrackUser(string userId);  //tap db用户统计
  XDGAccount.Login(user={
     
 },(error)=>{
