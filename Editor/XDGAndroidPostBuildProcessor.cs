@@ -23,18 +23,26 @@ public class XDGAndroidPostBuildProcessor : IPostGenerateGradleAndroidProject
 
         Debug.Log($"GradleProperties File:{gradlePropertiesFile}");
 
-        if (File.Exists(gradlePropertiesFile))
-        {
-            File.Delete(gradlePropertiesFile);
-        }
+        // 《大侠立志传》报有问题，卡顿严重，不可以删除
+        // if (File.Exists(gradlePropertiesFile))
+        // {
+        //     File.Delete(gradlePropertiesFile);
+        // }
+        //
+        // StreamWriter writer = File.CreateText(gradlePropertiesFile);
+        // writer.WriteLine("org.gradle.jvmargs=-Xmx4096M");
+        // writer.WriteLine("android.useAndroidX=true");
+        // writer.WriteLine("android.enableJetifier=true");
+        // writer.WriteLine("unityStreamingAssets=.unity3d");
+        // writer.Flush();
+        // writer.Close();
 
-        StreamWriter writer = File.CreateText(gradlePropertiesFile);
-        writer.WriteLine("org.gradle.jvmargs=-Xmx4096M");
-        writer.WriteLine("android.useAndroidX=true");
-        writer.WriteLine("android.enableJetifier=true");
-        writer.WriteLine("unityStreamingAssets=.unity3d");
-        writer.Flush();
-        writer.Close();
+        if (File.Exists(gradlePropertiesFile)){
+            XDGScriptHandlerProcessor writeHelper = new XDGScriptHandlerProcessor(gradlePropertiesFile);
+            writeHelper.WriteBelow(@"org.gradle.jvmargs=-Xmx4096M", @"
+android.useAndroidX=true
+android.enableJetifier=true");
+        }
     }
 
     public static bool GeneratedAndroidGradle(string projectPath)
