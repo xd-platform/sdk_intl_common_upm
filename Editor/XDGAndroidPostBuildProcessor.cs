@@ -17,32 +17,24 @@ public class XDGAndroidPostBuildProcessor : IPostGenerateGradleAndroidProject
         get { return 999; }
     }
 
-    public static void GenerateAndroidX(string path)
-    {
+    public static void GenerateAndroidX(string path){
+        
         string gradlePropertiesFile = path + "/gradle.properties";
-
         Debug.Log($"GradleProperties File:{gradlePropertiesFile}");
-
-        // 《大侠立志传》报有问题，卡顿严重，不可以删除
-        // if (File.Exists(gradlePropertiesFile))
-        // {
-        //     File.Delete(gradlePropertiesFile);
-        // }
-        //
-        // StreamWriter writer = File.CreateText(gradlePropertiesFile);
-        // writer.WriteLine("org.gradle.jvmargs=-Xmx4096M");
-        // writer.WriteLine("android.useAndroidX=true");
-        // writer.WriteLine("android.enableJetifier=true");
-        // writer.WriteLine("unityStreamingAssets=.unity3d");
-        // writer.Flush();
-        // writer.Close();
-
+        
         if (File.Exists(gradlePropertiesFile)){
-            XDGScriptHandlerProcessor writeHelper = new XDGScriptHandlerProcessor(gradlePropertiesFile);
-            writeHelper.WriteBelow(@"org.gradle.jvmargs=-Xmx4096M", @"
-android.useAndroidX=true
-android.enableJetifier=true");
+            File.Delete(gradlePropertiesFile);
         }
+
+        StreamWriter writer = File.CreateText(gradlePropertiesFile);
+        writer.WriteLine("org.gradle.jvmargs=-Xmx4096M");
+        writer.WriteLine("android.useAndroidX=true");
+        writer.WriteLine("android.enableJetifier=true");
+        writer.WriteLine("org.gradle.parallel=true");
+        writer.WriteLine("android.enableR8=false");
+        writer.WriteLine("unityStreamingAssets=.unity3d");
+        writer.Flush();
+        writer.Close();
     }
 
     public static bool GeneratedAndroidGradle(string projectPath)
@@ -206,7 +198,7 @@ android.enableJetifier=true");
 
                 implementation 'com.adjust.sdk:adjust-android:4.24.1'
                 implementation 'com.android.installreferrer:installreferrer:2.2'
-                implementation 'com.android.billingclient:billing:3.0.0'
+                implementation 'com.android.billingclient:billing:3.0.1'
                 implementation 'androidx.recyclerview:recyclerview:1.2.1'
                 implementation 'com.google.android.gms:play-services-ads-identifier:15.0.1'
                 implementation 'com.twitter.sdk.android:twitter:3.3.0'

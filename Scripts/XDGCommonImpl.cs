@@ -69,7 +69,7 @@ namespace XD.Intl.Common
 
                 var wrapper = new XDGInitResultWrapper(result.content);
                 XDGTool.Log("===> Init XDG SDK wrapper.localConfigInfo.tapSdkConfig: " + JsonUtility.ToJson(wrapper.localConfigInfo.tapSdkConfig));
-                if (wrapper.localConfigInfo.tapSdkConfig != null)
+                if (wrapper.localConfigInfo.tapSdkConfig != null && wrapper.isSuccess)
                 {
                     var info = wrapper.localConfigInfo.tapSdkConfig;
                     var gameChannel = wrapper.localConfigInfo.channel ?? "";
