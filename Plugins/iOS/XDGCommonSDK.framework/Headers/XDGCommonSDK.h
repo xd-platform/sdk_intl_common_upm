@@ -20,7 +20,7 @@
 #import <XDGCommonSDK/XDGLoginLogger.h>
 #import <XDGCommonSDK/XDGPaymentLogger.h>
 
-#define XDGSDK_VERSION @"6.3.0"
+#define XDGSDK_VERSION @"6.3.1"
 #define TDSGLOBALSDK_NAME @"XD-Intl-SDK"
 
 
