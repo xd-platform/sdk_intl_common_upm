@@ -1,12 +1,12 @@
 # XD-Intl
 ## 1.在Packages/manifest.json中加入如下引用
 ```
-    "com.leancloud.realtime": "https://github.com/leancloud/csharp-sdk-upm.git#realtime-0.10.5",
-    "com.leancloud.storage": "https://github.com/leancloud/csharp-sdk-upm.git#storage-0.10.5",
-    "com.taptap.tds.bootstrap": "https://github.com/TapTap/TapBootstrap-Unity.git#3.6.3",
-    "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.6.3",
-    "com.taptap.tds.login": "https://github.com/TapTap/TapLogin-Unity.git#3.6.3",
-    "com.taptap.tds.tapdb": "https://github.com/TapTap/TapDB-Unity.git#3.6.3",
+    "com.leancloud.realtime": "https://github.com/leancloud/csharp-sdk-upm.git#realtime-0.10.14",
+    "com.leancloud.storage": "https://github.com/leancloud/csharp-sdk-upm.git#storage-0.10.14",
+    "com.taptap.tds.bootstrap": "https://github.com/TapTap/TapBootstrap-Unity.git#3.11.1",
+    "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.11.1",
+    "com.taptap.tds.login": "https://github.com/TapTap/TapLogin-Unity.git#3.11.1",
+    "com.taptap.tds.tapdb": "https://github.com/TapTap/TapDB-Unity.git#3.11.1",
     "com.xd.intl.common": "https://github.com/xd-platform/sdk_intl_common_upm.git#6.3.2",
     "com.xd.intl.account": "https://github.com/xd-platform/sdk_intl_account_upm.git#6.3.2",
     "com.xd.intl.payment": "https://github.com/xd-platform/sdk_intl_payment_upm.git#6.3.2",
